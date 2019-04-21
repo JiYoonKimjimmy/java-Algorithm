@@ -7,11 +7,11 @@ package algorithm.sort;
 public class SelectionSort_01 {
     public static void main(String[] args) {
         int[] sample = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
-        int i = 0, j = 0, temp = 0, index = 0;
+        int temp, index = 0;
 
-        for (i = 0; i < sample.length; i++) {
+        for (int i = 0; i < sample.length; i++) {
             int min = 99;
-            for (j = i; j < sample.length; j++) {
+            for (int j = i; j < sample.length; j++) {
                 if (min > sample[j]) {
                     min = sample[j];
                     index = j;
@@ -29,7 +29,7 @@ public class SelectionSort_01 {
         }
 
         System.out.print("result : ");
-        for (i = 0; i < sample.length; i++) {
+        for (int i = 0; i < sample.length; i++) {
             System.out.print(sample[i]  + "  ");
         }
     }
