@@ -6,6 +6,31 @@ package algorithm.sort;
  */
 public class SelectionSort_01 {
     public static void main(String[] args) {
-            System.out.println("hello world");
+        int[] sample = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
+        int i = 0, j = 0, temp = 0, index = 0;
+
+        for (i = 0; i < sample.length; i++) {
+            int min = 99;
+            for (j = i; j < sample.length; j++) {
+                if (min > sample[j]) {
+                    min = sample[j];
+                    index = j;
+                }
+            }
+            temp = sample[i];
+            sample[i] = sample[index];
+            sample[index] = temp;
+
+            System.out.print(i + " : ");
+            for (int k = 0; k < sample.length; k++) {
+                System.out.print(sample[k]  + "  ");
+            }
+            System.out.println();
+        }
+
+        System.out.print("result : ");
+        for (i = 0; i < sample.length; i++) {
+            System.out.print(sample[i]  + "  ");
+        }
     }
 }
