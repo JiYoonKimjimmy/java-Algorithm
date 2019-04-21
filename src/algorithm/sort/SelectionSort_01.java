@@ -22,8 +22,8 @@ public class SelectionSort_01 {
             sample[index] = temp;
 
             System.out.print(i + " : ");
-            for (int k = 0; k < sample.length; k++) {
-                System.out.print(sample[k]  + "  ");
+            for (int j = 0; j < sample.length; j++) {
+                System.out.print(sample[j]  + "  ");
             }
             System.out.println();
         }
