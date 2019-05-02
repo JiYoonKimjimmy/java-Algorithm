@@ -27,25 +27,26 @@ public class QuickSort_01 {
 
         while (i <= j) {
             while (i <= end && data[i] <= data[key]) {
-                // 키 값보다 큰 값을 만날 떄까지
+                // (-->) 오른쪽으로 이동하면서, 키 값보다 큰 값을 만날 떄까지
                 i++;
             }
 
             while (j > start && data[j] >= data[key]) {
-                // 키 값보다 작은 값을 만날 떄까지
+                // (<--) 왼쪽으로 이동하면서, 키 값보다 작은 값을 만날 떄까지
                 j--;
             }
 
             if (i > j) {
+                // 검색 지점들이 교차하는 순간, 검색된 작은 수와 피벗값을 교체
                 temp = data[j];
-                data[j] =   data[key];
+                data[j] = data[key];
                 data[key] = temp;
             } else  {
+                // 교차가 아닐 땐, 검색된 큰 수와 작은 수를 교체
                 temp = data[i];
                 data[i] = data[j];
                 data[j] = temp;
             }
-
         }
 
         // 정렬이 된 후, 위치를 바꾼 큰 수를 피벗으로
