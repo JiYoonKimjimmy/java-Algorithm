@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @since 2019-05-04
  */
 public class MergeSort_01 {
-    public static int[] sort_arr;
+    public static int[] sorted;
 
     public static void merge(int[] input, int m, int middle, int n) {
         // m: 시작점 |  middle: 중간점 | n: 끝점
@@ -17,30 +17,31 @@ public class MergeSort_01 {
 
         while (i <= middle && j <= n) {
             if (input[i] <= input[j]) {
-                sort_arr[k] = input[i];
+                sorted[k] = input[i];
                 i++;
             } else {
-                sort_arr[k] = input[j];
+                sorted[k] = input[j];
                 j++;
             }
 
             k++;
         }
 
+        // 정렬된 배열 외의 나머지들은 그대로 sorted 배열에 담기
         if (i > middle) {
             for (int t = j; t <= n; t++) {
-                sort_arr[k] = input[t];
+                sorted[k] = input[t];
                 k++;
             }
         } else {
             for (int t = i; t <= middle; t++) {
-                sort_arr[k] = input[t];
+                sorted[k] = input[t];
                 k++;
             }
         }
 
         for (int t = m; t <= n; t++) {
-            input[t] = sort_arr[t];
+            input[t] = sorted[t];
         }
     }
 
@@ -64,7 +65,7 @@ public class MergeSort_01 {
             input[i] = sc.nextInt();
         }
 
-        sort_arr = new int[input.length];
+        sorted = new int[input.length];
 
         mergeSort(input, 0, input.length - 1);
 
