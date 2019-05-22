@@ -1,5 +1,7 @@
 package algorithm.sort;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,6 +34,27 @@ public class GraphSample_01 {
 
             graph.get(x).add(y);
             graph.get(y).add(x);
+        }
+
+        return graph;
+    }
+
+    public List<List<Pair<Integer, Integer>>> setGraphWithWeight() {
+        Scanner sc = new Scanner(System.in);
+
+        List<List<Pair<Integer, Integer>>> graph = new ArrayList<>();
+
+        for (int i = 0; i < vertex + 1; i++) {
+            graph.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < edge; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            int w = sc.nextInt();
+
+            graph.get(x).add(new Pair<>(y, w));
+            graph.get(y).add(new Pair<>(x, w));
         }
 
         return graph;
