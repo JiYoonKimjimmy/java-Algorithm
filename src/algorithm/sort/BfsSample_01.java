@@ -1,27 +1,36 @@
 package algorithm.sort;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
  * @author Jim, Kim
  * @since 2019-05-22
  */
-public class DfsSample_01 {
+public class BfsSample_01 {
 
     private static List<List<Integer>> graph;
     private static boolean[] checked;
 
-    public static void dfs(int x) {
-        checked[x] = true;
+    public static void bfs(int start) {
+        Queue<Integer> queue = new LinkedList<>();
 
-        System.out.println(x);
+        queue.offer(start);
 
-        for (int i = 0; i < graph.get(x).size(); i++) {
-            int y = graph.get(x).get(i);
+        checked[start] = true;
 
-            if (checked[y] == false) {
-                dfs(y);
+        while(!queue.isEmpty()) {
+            int vertex = queue.poll();
+
+            System.out.println(vertex);
+
+            for (int e : graph.get(vertex)) {
+                if (checked[e] == false) {
+                    checked[e] = true;
+                    queue.offer(e);
+                }
             }
         }
     }
@@ -40,7 +49,6 @@ public class DfsSample_01 {
 
         Graph.printGraph(graph);
 
-        dfs(1);
-
+        bfs(1);
     }
 }

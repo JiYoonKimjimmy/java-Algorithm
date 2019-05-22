@@ -60,6 +60,19 @@ public class GraphSample_01 {
         return graph;
     }
 
+    public void printGraph(List<List<Integer>> graph) {
+        for (int i = 0; i < graph.size(); i++) {
+            List<Integer> item = graph.get(i);
+            System.out.print(i + " : ");
+            for (int j = 0; j < item.size(); j++) {
+                System.out.print(item.get(j) + ", ");
+            }
+            System.out.println();
+        }
+        System.out.println("---------------------");
+
+    }
+
     public static void main(String[] args) {
 
     }
