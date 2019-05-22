@@ -1,0 +1,43 @@
+package algorithm.sort;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * @author Jim, Kim
+ * @since 2019-05-22
+ */
+public class GraphSample_01 {
+    private static int vertex;
+    private static int edge;
+
+    public GraphSample_01(int vertex, int edge) {
+        this.vertex = vertex;
+        this.edge = edge;
+    }
+
+    public List<List<Integer>> setGraph() {
+        Scanner sc = new Scanner(System.in);
+
+        List<List<Integer>> graph = new ArrayList<>();
+
+        for (int i = 0; i < vertex + 1; i++) {
+            graph.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < edge; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+
+            graph.get(x).add(y);
+            graph.get(y).add(x);
+        }
+
+        return graph;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
