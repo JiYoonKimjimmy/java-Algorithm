@@ -6,6 +6,15 @@ import java.util.Scanner;
  * @author Jim, Kim
  * @since 2019-06-01
  */
+interface Stack {
+    boolean isEmpty();
+    boolean isFull();
+    void clear();
+    void push(String data);
+    String pop();
+    String peek();
+}
+
 public class StackSample_01 implements Stack {
 
     private int top;        // stack의 최상단 index
@@ -92,13 +101,4 @@ public class StackSample_01 implements Stack {
         System.out.println(stack.pop());
         System.out.println(stack.pop());
     }
-}
-
-interface Stack {
-    boolean isEmpty();
-    boolean isFull();
-    void clear();
-    void push(String data);
-    String pop();
-    String peek();
 }
