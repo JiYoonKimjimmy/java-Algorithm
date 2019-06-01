@@ -1,4 +1,6 @@
-package algorithm.sort;
+package algorithm.graph;
+
+import algorithm.sort.GraphSample_01;
 
 import java.util.LinkedList;
 import java.util.List;
