@@ -75,7 +75,7 @@ public class StackSample_01 implements Stack {
     public String peek() {
         if (isEmpty()) {
             System.out.println("Peek fail! Stack is already empty!!");
-            return "0";
+            return "empty";
         } else {
             // 데이터 제거 없이 데이터만 반환
             return stack[this.top];
