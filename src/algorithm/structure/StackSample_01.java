@@ -64,7 +64,7 @@ public class StackSample_01 implements Stack {
     public String pop() {
         if (isEmpty()) {
             System.out.println("Pop fail! Stack is already empty!!");
-            return "0";
+            return "empty";
         } else {
             // 데이터 반환하고 top을 -1하면, 데이터 제거
             return stack[--this.top];
