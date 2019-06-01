@@ -17,7 +17,7 @@ public class CountingSort_01 {
 
         for (int i = 0; i < sorted.length; i++) {
             while (sorted[i] != 0) {
-                System.out.println(i + 1);
+                System.out.print((i + 1) + " ");
                 sorted[i]--;
             }
         }
