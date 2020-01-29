@@ -1,4 +1,4 @@
-package algorithm.sort;
+package algorithm.graph;
 
 import javafx.util.Pair;
 
