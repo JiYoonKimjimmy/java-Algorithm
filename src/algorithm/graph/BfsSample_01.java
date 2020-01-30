@@ -1,5 +1,7 @@
 package algorithm.graph;
 
+import javafx.util.Pair;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -11,7 +13,7 @@ import java.util.Scanner;
  */
 public class BfsSample_01 {
     private static List<String> printList;
-    private static List<List<Integer>> graph;
+    private static List<List<Pair<Integer, Integer>>> graph;
     private static boolean[] checked;
 
     public static void bfs(int start) {
@@ -28,10 +30,11 @@ public class BfsSample_01 {
 
             printList.add(String.valueOf(vertex));
 
-            for (int e : graph.get(vertex)) {
-                if (checked[e] == false) {
-                    checked[e] = true;
-                    queue.offer(e);
+            for (Pair<Integer, Integer> e : graph.get(vertex)) {
+                int k = e.getKey();
+                if (checked[k] == false) {
+                    checked[k] = true;
+                    queue.offer(k);
                 }
             }
         }
@@ -45,16 +48,15 @@ public class BfsSample_01 {
         System.out.print("총 간선 : ");
         int edge = sc.nextInt();
 
-        GraphSample_01 Graph = new GraphSample_01(vertex, edge);
-
-        graph = Graph.setGraph();
+        ListGraph listGraph = new ListGraph(vertex, edge);
+        graph = listGraph.setGraph();
 
         checked = new boolean[vertex + 1];
 
-        Graph.printGraph(graph);
+        listGraph.printGraph(graph);
 
         bfs(1);
 
-        System.out.println(String.join(" -> ", printList));
+        System.out.println("result of BFS : " + String.join(" -> ", printList));
     }
 }

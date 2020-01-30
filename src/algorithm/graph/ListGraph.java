@@ -9,75 +9,69 @@ import java.util.Scanner;
 
 /**
  * @author Jim, Kim
- * @since 2019-05-22
+ * @since 2020-01-30
  */
-public class GraphSample_01 {
+public class ListGraph {
+    private static List<List<Pair<Integer, Integer>>> graph;
     private static int vertex;
     private static int edge;
 
-    public GraphSample_01(int vertex, int edge) {
+    public ListGraph(int vertex, int edge) {
         this.vertex = vertex;
         this.edge = edge;
-    }
 
-    public List<List<Integer>> setGraph() {
-        Scanner sc = new Scanner(System.in);
-
-        List<List<Integer>> graph = new ArrayList<>();
-
+        this.graph = new ArrayList<>();
         for (int i = 0; i < vertex + 1; i++) {
             graph.add(new ArrayList<>());
         }
+    }
+
+    public List<List<Pair<Integer, Integer>>> setGraph() {
+        Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < edge; i++) {
+            System.out.println("[" + i + "] 번째 간선 정보 입력..");
             System.out.print("정점 : ");
             int x = sc.nextInt();
             System.out.print("인접정점 : ");
             int y = sc.nextInt();
+            System.out.print("가중치 : ");
+            int w = sc.nextInt();
 
-            put(graph, x, y);
+            put(x, y, w);
         }
 
         return graph;
     }
 
-    public void put(List<List<Integer>> graph, int x, int y) {
-        graph.get(x).add(y);
-        graph.get(y).add(x);
+    public void put(int x, int y, int w) {
+        graph.get(x).add(new Pair<>(y, w));
+        graph.get(y).add(new Pair<>(x, w));
     }
 
-    public void putSingle(List<List<Integer>> graph, int x, int y) {
-        graph.get(x).add(y);
+    public void putSingle(int x, int y, int w) {
+        graph.get(x).add(new Pair<>(y, w));
     }
 
-    public List<List<Pair<Integer, Integer>>> setGraphWithWeight() {
+    public void setGraphWithWeight() {
         Scanner sc = new Scanner(System.in);
-
-        List<List<Pair<Integer, Integer>>> graph = new ArrayList<>();
-
-        for (int i = 0; i < vertex + 1; i++) {
-            graph.add(new ArrayList<>());
-        }
 
         for (int i = 0; i < edge; i++) {
             int x = sc.nextInt();
             int y = sc.nextInt();
             int w = sc.nextInt();
 
-            graph.get(x).add(new Pair<>(y, w));
-            graph.get(y).add(new Pair<>(x, w));
+            put(x, y, w);
         }
-
-        return graph;
     }
 
-    public void printGraph(List<List<Integer>> graph) {
+    public void printGraph(List<List<Pair<Integer, Integer>>> graph) {
         System.out.println();
         System.out.println("---------------------");
         for (int i = 1; i < graph.size(); i++) {
-            List<String> printList = new LinkedList<>();
+            java.util.List<String> printList = new LinkedList<>();
 
-            List<Integer> item = graph.get(i);
+            List<Pair<Integer, Integer>> item = graph.get(i);
             System.out.print(i + " : ");
             item.stream().forEach(e -> printList.add(String.valueOf(e)));
 
