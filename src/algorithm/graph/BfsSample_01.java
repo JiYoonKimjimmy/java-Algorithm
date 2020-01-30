@@ -48,12 +48,12 @@ public class BfsSample_01 {
         System.out.print("총 간선 : ");
         int edge = sc.nextInt();
 
-        ListGraph listGraph = new ListGraph(vertex, edge);
-        graph = listGraph.setGraph();
+        ListGraphSample listGraphSample = new ListGraphSample(vertex, edge);
+        graph = listGraphSample.setGraph();
 
         checked = new boolean[vertex + 1];
 
-        listGraph.printGraph(graph);
+        listGraphSample.printGraph(graph);
 
         bfs(1);
 

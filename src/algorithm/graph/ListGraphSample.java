@@ -11,12 +11,12 @@ import java.util.Scanner;
  * @author Jim, Kim
  * @since 2020-01-30
  */
-public class ListGraph {
+public class ListGraphSample {
     private static List<List<Pair<Integer, Integer>>> graph;
     private static int vertex;
     private static int edge;
 
-    public ListGraph(int vertex, int edge) {
+    public ListGraphSample(int vertex, int edge) {
         this.vertex = vertex;
         this.edge = edge;
 
