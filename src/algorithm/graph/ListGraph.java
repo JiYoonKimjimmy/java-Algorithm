@@ -31,11 +31,11 @@ public class ListGraph {
 
         for (int i = 0; i < edge; i++) {
             System.out.println("[" + i + "] 번째 간선 정보 입력..");
-            System.out.print("정점 : ");
+            System.out.print("[정점] : ");
             int x = sc.nextInt();
-            System.out.print("인접정점 : ");
+            System.out.print("[인접정점] : ");
             int y = sc.nextInt();
-            System.out.print("가중치 : ");
+            System.out.print("[가중치] : ");
             int w = sc.nextInt();
 
             put(x, y, w);
