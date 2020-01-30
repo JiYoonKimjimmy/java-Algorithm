@@ -2,9 +2,13 @@ package algorithm.graph;
 
 import javafx.util.Pair;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * @author Jim, Kim
@@ -29,14 +33,24 @@ public class GraphSample_01 {
         }
 
         for (int i = 0; i < edge; i++) {
+            System.out.print("정점 : ");
             int x = sc.nextInt();
+            System.out.print("인접정점 : ");
             int y = sc.nextInt();
 
-            graph.get(x).add(y);
-            graph.get(y).add(x);
+            put(graph, x, y);
         }
 
         return graph;
+    }
+
+    public void put(List<List<Integer>> graph, int x, int y) {
+        graph.get(x).add(y);
+        graph.get(y).add(x);
+    }
+
+    public void putSingle(List<List<Integer>> graph, int x, int y) {
+        graph.get(x).add(y);
     }
 
     public List<List<Pair<Integer, Integer>>> setGraphWithWeight() {
@@ -61,19 +75,18 @@ public class GraphSample_01 {
     }
 
     public void printGraph(List<List<Integer>> graph) {
-        for (int i = 0; i < graph.size(); i++) {
+        System.out.println();
+        System.out.println("---------------------");
+        for (int i = 1; i < graph.size(); i++) {
+            List<String> printList = new LinkedList<>();
+
             List<Integer> item = graph.get(i);
             System.out.print(i + " : ");
-            for (int j = 0; j < item.size(); j++) {
-                System.out.print(item.get(j) + ", ");
-            }
-            System.out.println();
+            item.stream().forEach(e -> printList.add(String.valueOf(e)));
+
+            System.out.println(String.join(", ", printList));
         }
         System.out.println("---------------------");
-
-    }
-
-    public static void main(String[] args) {
-
+        System.out.println();
     }
 }

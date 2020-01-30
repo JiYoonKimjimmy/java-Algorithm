@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @since 2019-05-22
  */
 public class BfsSample_01 {
-
+    private static List<String> printList;
     private static List<List<Integer>> graph;
     private static boolean[] checked;
 
@@ -21,10 +21,12 @@ public class BfsSample_01 {
 
         checked[start] = true;
 
+        printList = new LinkedList<>();
+
         while(!queue.isEmpty()) {
             int vertex = queue.poll();
 
-            System.out.println(vertex);
+            printList.add(String.valueOf(vertex));
 
             for (int e : graph.get(vertex)) {
                 if (checked[e] == false) {
@@ -38,7 +40,9 @@ public class BfsSample_01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        System.out.print("총 정점 : ");
         int vertex = sc.nextInt();
+        System.out.print("총 간선 : ");
         int edge = sc.nextInt();
 
         GraphSample_01 Graph = new GraphSample_01(vertex, edge);
@@ -50,5 +54,7 @@ public class BfsSample_01 {
         Graph.printGraph(graph);
 
         bfs(1);
+
+        System.out.println(String.join(" -> ", printList));
     }
 }
