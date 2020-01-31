@@ -15,31 +15,51 @@ public class ListGraphSample {
     private static List<List<Pair<Integer, Integer>>> graph;
     private static int vertex;
     private static int edge;
+    private static Scanner scanner;
 
-    public ListGraphSample(int vertex, int edge) {
-        this.vertex = vertex;
-        this.edge = edge;
+    public ListGraphSample() {
+        initGraph();
+    }
 
-        this.graph = new ArrayList<>();
+    public int getVertex() {
+        return vertex;
+    }
+
+    public List<List<Pair<Integer, Integer>>> getGraph() {
+        return graph;
+    }
+
+    public void initGraph() {
+        scanner = new Scanner(System.in);
+
+        System.out.print("총 정점 수 : ");
+        vertex = scanner.nextInt();
+        System.out.print("총 간선 수 : ");
+        edge = scanner.nextInt();
+
+        graph = new ArrayList<>();
         for (int i = 0; i < vertex + 1; i++) {
             graph.add(new ArrayList<>());
         }
+
+        setGraph();
     }
 
     public List<List<Pair<Integer, Integer>>> setGraph() {
-        Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < edge; i++) {
             System.out.println("[" + i + "] 번째 간선 정보 입력..");
             System.out.print("[정점] : ");
-            int x = sc.nextInt();
+            int x = scanner.nextInt();
             System.out.print("[인접정점] : ");
-            int y = sc.nextInt();
+            int y = scanner.nextInt();
             System.out.print("[가중치] : ");
-            int w = sc.nextInt();
+            int w = scanner.nextInt();
 
             put(x, y, w);
         }
+
+        printGraph();
 
         return graph;
     }
@@ -65,11 +85,11 @@ public class ListGraphSample {
         }
     }
 
-    public void printGraph(List<List<Pair<Integer, Integer>>> graph) {
+    public void printGraph() {
         System.out.println();
         System.out.println("---------------------");
         for (int i = 1; i < graph.size(); i++) {
-            java.util.List<String> printList = new LinkedList<>();
+            List<String> printList = new LinkedList<>();
 
             List<Pair<Integer, Integer>> item = graph.get(i);
             System.out.print(i + " : ");

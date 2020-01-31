@@ -43,17 +43,11 @@ public class BfsSample_01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("총 정점 수 : ");
-        int vertex = sc.nextInt();
-        System.out.print("총 간선 수 : ");
-        int edge = sc.nextInt();
+        ListGraphSample listGraphSample = new ListGraphSample();
+        graph = listGraphSample.getGraph();
 
-        ListGraphSample listGraphSample = new ListGraphSample(vertex, edge);
-        graph = listGraphSample.setGraph();
-
+        int vertex = listGraphSample.getVertex();
         checked = new boolean[vertex + 1];
-
-        listGraphSample.printGraph(graph);
 
         bfs(1);
 
