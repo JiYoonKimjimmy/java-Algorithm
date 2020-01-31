@@ -45,7 +45,7 @@ public class ListGraphSample {
         setGraph();
     }
 
-    public List<List<Pair<Integer, Integer>>> setGraph() {
+    public void setGraph() {
 
         for (int i = 0; i < edge; i++) {
             System.out.println("[" + i + "] 번째 간선 정보 입력..");
@@ -60,8 +60,6 @@ public class ListGraphSample {
         }
 
         printGraph();
-
-        return graph;
     }
 
     public void put(int x, int y, int w) {
