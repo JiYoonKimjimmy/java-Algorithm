@@ -41,7 +41,7 @@ public class BfsSample_01 {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         ListGraphSample listGraphSample = new ListGraphSample();
         graph = listGraphSample.getGraph();
@@ -49,7 +49,9 @@ public class BfsSample_01 {
         int vertex = listGraphSample.getVertex();
         checked = new boolean[vertex + 1];
 
-        bfs(1);
+        System.out.print("BFS 접근 노드 : ");
+        int start = scanner.nextInt();
+        bfs(start);
 
         System.out.println("result of BFS : " + String.join(" -> ", printList));
     }
