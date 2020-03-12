@@ -16,6 +16,14 @@ public class BfsSample_01 {
     private static List<List<Pair<Integer, Integer>>> graph;
     private static boolean[] checked;
 
+    /**
+     * BFS(Breadth First Search) - 너비 우선 탐색
+     * root node 로부터 시작하여 인접 node 들을 먼저 탐색하는 방법이다.
+     * 즉, 깊게(deep) 탐색하는 방법이 아닌, 넓게(wide) 탐색하는 알고리즘이다.
+     * ex) 친구 관계를 탐색할 경우, bfs 알고리즘이 사용해야하는 이유 :
+     * 특정 인물의 모든 친구 관계를 파악하기 위해서는,
+     * 특정 인물과 직접적으로 연결된 친구들부터 먼저 탐색하는 것이 더 적합하다.
+     */
     public static void bfs(int start) {
         Queue<Integer> queue = new LinkedList<>();
 
