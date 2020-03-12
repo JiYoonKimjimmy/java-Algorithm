@@ -15,6 +15,13 @@ public class DfsSample_01 {
     private static List<List<Pair<Integer, Integer>>> graph;
     private static boolean[] checked;
 
+    /**
+     * DFS(Deep First Search) - 깊이 우선 탐색
+     * root node 로부터 시작하여 다음 branch 로 넘어가기 전에 해당 branch 를 완벽하게 탐색하는 방법이다.
+     * 즉, 넓게(wide) 가 아닌, 깊게(deep) 탐색하는 알고리즘이다.
+     * ex) 미로를 탐색할 경우, 한 방향으로 계속 탐색하다가 더이상 갈 수 없을 때,
+     * 다시 가까운 갈림길로 돌아와서 다른 방향으로 탐색을 이어가는 방법으로 적합하다.
+     */
     public static void dfs(int x) {
         checked[x] = true;
 
@@ -34,19 +41,15 @@ public class DfsSample_01 {
 
         printList = new LinkedList<>();
 
-        System.out.print("총 정점 수 : ");
-        int vertex = sc.nextInt();
-        System.out.print("총 간선 수 : ");
-        int edge = sc.nextInt();
+        ListGraphSample listGraphSample = new ListGraphSample();
+        graph = listGraphSample.getGraph();
 
-        ListGraphSample listGraphSample = new ListGraphSample(vertex, edge);
-        graph = listGraphSample.setGraph();
-
+        int vertex = listGraphSample.getVertex();
         checked = new boolean[vertex + 1];
 
-        listGraphSample.printGraph(graph);
-
-        dfs(1);
+        System.out.print("DFS 접근 노드 : ");
+        int start = sc.nextInt();
+        dfs(start);
 
         System.out.println("result of DFS : " + String.join(" -> ", printList));
 
